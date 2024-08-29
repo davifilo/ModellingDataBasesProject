@@ -1,0 +1,38 @@
+INTRODUCTION
+We want to realize a database for a Football Referee Club (“sezione arbitri di calcio”). 
+
+DESCRIPTION
+For each member we want to store the ssn, the id number, the birth date, the name and surname, the email, the iban, the address and the phone number. A member can have a role in the managerial board of the club or can be an active member, or both. Again, an active member is either a referee or an observer, or both. And a managerial member can be the administrator, who assigns referees to matches (“designatore”), or the secretary, or none of the two. 
+A managerial member can send a message to one or more active members. Of messages we are interested in the date, the title, the content and the identification code. 
+The secretary can invite one or more active members to an event, of which the following are of interest: date, name, description, location, start date, end date and code. 
+The administrator makes assignments (“designazioni”), which connect a football game to one and only one referee and in some cases to at most one observer. Of the football game the following are of interest: home team, guest team, championship (“campionato”), location, date and code. Of the assignment we want to know whether it is confirmed or still pending.
+A referee has a medical certificate, which has a start date and an end date and an identification code, and he can also have a preclusion, that has a start date, an end date, a team and a championship. A referee cannot be assigned to a match that involves a team in a championship, for which he is precluded (“exempted”). In addition a referee must have a valid medical certificate on the date of the game he is assigned to. 
+Then an active member can set an unavailability, of which we want to know the start date, the end date, a reason and an optional note. There is a particular type of unavailability, that is the same but has a further description. An active member, who can be a referee or an observer cannot be assigned to a match during the period of time of his unavailability. 
+
+SCOPE
+The main goal of the system is to provide data to assign matches to active members taking into account the preclusion, the unavailability and the medical certificate of each member. An additional feature would be to keep record of the activities of the club’s members, to do that, an instance of the entity member can also be an instance of more than one of his subentities. But, in order to distinguish the members who are currently operating from the retired ones, a boolean attribute “state” is added to the subentities of the entity member. 
+
+
+DATA DICTIONARY (al posto di questo)
+Entities:
+Member 
+active member
+- referee
+- observer
+managerial member 
+- secretary 
+- administrator
+Assignment
+Match
+Medical certificate
+Unavailability
+leave
+Preclusion
+Message
+Event
+
+Relationships:
+
+Each entity includes attributes such as:
+
+
